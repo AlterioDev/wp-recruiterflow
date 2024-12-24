@@ -84,11 +84,20 @@ class Settings
 
         add_settings_field(
             'vacancy_slug',
-            __('Vacancy Slug', 'wp-recruiterflow'),
-            [$this, 'renderSlugField'],
+            __('Vacancy slug (singular)', 'wp-recruiterflow'),
+            [$this, 'renderSingularSlugField'],
             self::MENU_SLUG,
             'general_section',
             array('label_for' => 'vacancy_slug')
+        );
+
+        add_settings_field(
+            'archive_slug',
+            __('Vacancy slug (plural)', 'wp-recruiterflow'),
+            [$this, 'renderPluralSlugField'],
+            self::MENU_SLUG,
+            'general_section',
+            array('label_for' => 'archive_slug')
         );
 
         // Sync section
@@ -132,12 +141,23 @@ class Settings
         ]);
     }
 
-    public function renderSlugField(): void
+    public function renderSingularSlugField(): void
     {
         $options = get_option(self::OPTION_NAME);
-        $this->renderTemplate('fields/slug', [
+
+        $this->renderTemplate('fields/singular-slug', [
             'name' => self::OPTION_NAME,
             'value' => $options['vacancy_slug'] ?? 'vacancy'
+        ]);
+    }
+
+    public function renderPluralSlugField(): void
+    {
+        $options = get_option(self::OPTION_NAME);
+
+        $this->renderTemplate('fields/plural-slug', [
+            'name' => self::OPTION_NAME,
+            'value' => $options['archive_slug'] ?? 'vacancies'
         ]);
     }
 
@@ -154,10 +174,16 @@ class Settings
         ]);
     }
 
-    public static function getVacancySlug(): string
+    public static function getSingleVacancySlug(): string
     {
         $options = get_option(self::OPTION_NAME);
         return $options['vacancy_slug'] ?? 'vacancy';
+    }
+
+    public static function getVacancyArchiveSlug(): string
+    {
+        $options = get_option(self::OPTION_NAME);
+        return $options['archive_slug'] ?? 'vacancies';
     }
 
     private function renderTemplate(string $template, array $data = []): void

@@ -37,6 +37,9 @@ class Vacancy
      */
     public function register(): void
     {
+        $singularSlug = Settings::getSingleVacancySlug() ?: 'vacancy';
+        $pluralSlug = Settings::getVacancyArchiveSlug() ?: 'vacancies';
+
         register_post_type('vacancy', [
             'labels' => [
                 'name' => __('Vacancies', 'wp-recruiterflow'),
@@ -51,14 +54,10 @@ class Vacancy
                 'not_found_in_trash' => __('No vacancies found in Trash', 'wp-recruiterflow')
             ],
             'public' => true,
-            'has_archive' => true,
+            'rewrite' => ['slug' => $singularSlug],
+            'has_archive' => $pluralSlug,
             'supports' => ['title', 'editor', 'thumbnail'],
             'menu_icon' => 'dashicons-businessman',
-            'rewrite' => ['slug' => Settings::getVacancySlug()],
-            'template' => [
-                ['core/heading', ['level' => 1]],
-                ['core/paragraph'],
-            ]
         ]);
     }
 }
