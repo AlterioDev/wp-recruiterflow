@@ -196,8 +196,10 @@ class Settings
     {
         $sanitized = [];
         $sanitized['api_key'] = sanitize_text_field($input['api_key'] ?? '');
-        $slug = sanitize_title($input['vacancy_slug'] ?? '');
-        $sanitized['vacancy_slug'] = empty($slug) ? 'vacancy' : $slug;
+        $singular_slug = sanitize_title($input['vacancy_slug'] ?? '');
+        $sanitized['vacancy_slug'] = empty($singular_slug) ? 'vacancy' : $singular_slug;
+        $plural_slug = sanitize_title($input['archive_slug'] ?? '');
+        $sanitized['archive_slug'] = empty($plural_slug) ? 'vacancy' : $plural_slug;
 
         return $sanitized;
     }
