@@ -1,0 +1,25 @@
+{
+  "name": "alterio/wp-recruiterflow",
+  "description": "Synchronizes vacancies from Recruiterflow to WordPress",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bas",
+      "email": "bas@alterio.nl"
+    }
+  ],
+  "require": {
+    "monolog/monolog": "^3.0",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Alterio\\WPRecruiterflow\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  }
+}
