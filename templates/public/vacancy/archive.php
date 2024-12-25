@@ -1,10 +1,8 @@
 <?php
 get_header();
 ?>
-
 <main class="vacancy-archive">
     <div class="container">
-
         <?php if (have_posts()): ?>
             <div class="vacancy-archive__grid">
                 <?php while (have_posts()): the_post();
@@ -18,7 +16,6 @@ get_header();
                             <h2 class="vacancy-archive__title">
                                 <?php the_title(); ?>
                             </h2>
-
                             <?php if ($location || $type || $salary): ?>
                                 <div class="vacancy-archive__meta">
                                     <?php if ($location): ?>
@@ -34,23 +31,18 @@ get_header();
                                     <?php endif; ?>
                                 </div>
                             <?php endif; ?>
-
-                            <div class="vacancy-archive__button">
+                            <div class="vacancy-archive__excerpt">
                                 <?php the_excerpt(); ?>
-                            </div>
-
+                            </div class="vacancy-archive__button">
                             <button><?php esc_html_e('Open vacancy', 'wp-recruiterflow'); ?></button>
                         </article>
                     </a>
                 <?php endwhile; ?>
             </div>
-
             <?php the_posts_pagination(); ?>
-
         <?php else: ?>
             <p><?php esc_html_e('No vacancies found.', 'wp-recruiterflow'); ?></p>
         <?php endif; ?>
     </div>
 </main>
-
 <?php get_footer(); ?>
