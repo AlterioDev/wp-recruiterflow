@@ -33,8 +33,10 @@ get_header();
                             <?php endif; ?>
                             <div class="vacancy-archive__excerpt">
                                 <?php the_excerpt(); ?>
-                            </div class="vacancy-archive__button">
-                            <button><?php esc_html_e('Open vacancy', 'wp-recruiterflow'); ?></button>
+                            </div>
+                            <button class="vacancy-archive__button">
+                                <?php esc_html_e('Open vacancy', 'wp-recruiterflow'); ?>
+                            </button>
                         </article>
                     </a>
                 <?php endwhile; ?>
