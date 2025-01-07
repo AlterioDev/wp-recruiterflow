@@ -44,7 +44,7 @@ WordPress plugin to sync job vacancies from Recruiterflow into your WordPress si
 
 ## Templates 🎨
 
-Override default templates by copying them to your theme:
+Override default templates by copying them from the plugin directory:
 
 ```
 wp-recruiterflow/
