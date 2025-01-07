@@ -22,7 +22,7 @@ class Loader
                 return $theme_template;
             }
 
-            $plugin_template = WP_RECRUITERFLOW_PLUGIN_DIR . 'templates/public/vacancy/single.php';
+            $plugin_template = WP_RECRUITERFLOW_PLUGIN_DIR . 'templates/public/vacancy/single-vacancy.php';
 
             return file_exists($plugin_template) ? $plugin_template : $template;
         }
@@ -41,7 +41,7 @@ class Loader
                 return $theme_template;
             }
 
-            $plugin_template = WP_RECRUITERFLOW_PLUGIN_DIR . 'templates/public/vacancy/archive.php';
+            $plugin_template = WP_RECRUITERFLOW_PLUGIN_DIR . 'templates/public/vacancy/archive-vacancy.php';
 
             return file_exists($plugin_template) ? $plugin_template : $template;
         }
