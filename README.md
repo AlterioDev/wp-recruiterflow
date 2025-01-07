@@ -48,11 +48,8 @@ Override default templates by copying them to your theme:
 
 ```
 your-theme/
-└── wp-recruiterflow/
-    └── public/
-        └── vacancy/
-            ├── single.php
-            └── archive.php
+    ├── single-vacancy.php
+    └── archive-vacancy.php
 ```
 
 ## Development 👨‍💻
